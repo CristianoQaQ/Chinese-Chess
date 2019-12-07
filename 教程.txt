@@ -1,5 +1,7 @@
-从本地上传到远程：
 
+一.配置教程： https://www.cnblogs.com/jf-67/p/6415637.html
+
+二.从本地上传到远程：
 1.git init // 初始化版本库 
 2.git add . // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件
 3.git commit -m "first commit" // 把添加的文件提交到版本库，并填写提交备注
@@ -11,5 +13,6 @@ git pull --rebase origin master
 执行完上面命令 再执行一次  git push -u origin master ）
 6.刷新存储库
 
+三.把最新仓库内容更新到自己本地： 在本地库所在文件打开git bash，输入：git pull 即可。
 
-教材网站：https://www.cnblogs.com/flora5/p/7152556.html
+四.删除文件教程： https://segmentfault.com/a/1190000018921326
