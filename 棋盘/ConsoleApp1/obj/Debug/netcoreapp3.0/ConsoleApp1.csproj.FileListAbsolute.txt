@@ -9,3 +9,14 @@ C:\Users\SUNNY\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.0\Cons
 C:\Users\SUNNY\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.AssemblyInfo.cs
 C:\Users\SUNNY\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.dll
 C:\Users\SUNNY\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.pdb
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.exe
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.deps.json
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.runtimeconfig.json
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.runtimeconfig.dev.json
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.dll
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.pdb
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.csprojAssemblyReference.cache
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.AssemblyInfoInputs.cache
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.AssemblyInfo.cs
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.dll
+D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.pdb
