@@ -40,7 +40,16 @@ namespace ConsoleApp1
 
             
             string[,] Board = ChessBoard.DrawingBoard();
-                for (int i = 0; i <= 18; i++)
+            Board[0, 0] = "车";
+            Board[0, 1] = "马";
+            Board[0, 2] = "象";
+            Board[0, 3] = "士";
+            Board[0, 4] = "将";
+            Board[0, 5] = "士";
+            Board[0, 6] = "象";
+            Board[0, 7] = "马";
+            Board[0, 8] = "车";
+            for (int i = 0; i <= 18; i++)
                 {
                     for (int j = 0; j < 9; j++)
                     {
