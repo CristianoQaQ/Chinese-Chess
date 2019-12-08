@@ -5,12 +5,13 @@ namespace ConsoleApp1
 {
     class ChessPiece
     {
+        //枚举，给各个类型赋值。
         enum player
         {
             blank,
             red,
             blue,
-        };
+        };//分为红蓝两方
         enum chesstype
         {
             blank,
@@ -21,18 +22,18 @@ namespace ConsoleApp1
             xiang,
             zu,
             shi
-        };
+        };//分为不同的棋子类型
         struct chess
         {
             public player side;
             public chesstype type;
-        };
+        };//自定义红蓝方和棋子类型两个结构
         struct block
         {
             public chess item;
-        };
-        block[,] Matrix;
-        public void resetground()
+        };//自定义一个结构用以整合为一个棋子
+        block[,] Matrix;//为棋子创建一个自定义的数组类型。
+        public void resetground()//给每一个棋子类型赋予属性
         {
             Matrix = new block[19, 9];
             for (int i = 0; i < 19; i++)
@@ -109,7 +110,7 @@ namespace ConsoleApp1
             Matrix[18, 7].item.type = chesstype.ma;
             Matrix[18, 8].item.type = chesstype.che;
         }
-        public bool movechess(int X, int Y,int chozenX, int chozenY)
+        public bool movechess(int X, int Y,int chozenX, int chozenY)//每种类型棋子的移动规则（未完成）
         {
             int i, j, k, n = 0;
             switch (Matrix[chozenX, chozenY].item.type)
@@ -144,13 +145,13 @@ namespace ConsoleApp1
             }
             return false;
         }
-        public void setmove(int X, int Y, int chozenX, int chozenY)
+        public void setmove(int X, int Y, int chozenX, int chozenY)//通用的移动规则
         {
             Matrix[X, Y].item = Matrix[chozenX, chozenY].item;
             Matrix[chozenX, chozenY].item.side = player.blank;
             Matrix[chozenX, chozenY].item.type = chesstype.blank;
         }
-        public string[,] Piece()
+        public string[,] Piece()//把棋子放进棋盘中
         {
             string[,] board = ChessBoard.DrawingBoard();
             string [,]layout = board;

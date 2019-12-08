@@ -6,6 +6,7 @@ namespace ConsoleApp1
 {
     class ChessBoard
     {
+        //棋盘模型的建造
         public static string[,] DrawingBoard()
         {
             string[,] Board = new string[19, 9];

@@ -5,13 +5,13 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            ChessPiece move = new ChessPiece();
-            move.resetground();
+            ChessPiece move = new ChessPiece();//建造一个其他类的对象
+            move.resetground();//初始化棋盘和棋子
             bool result = true;
-            while (result == true)
+            while (result == true)//创造一个循环
             {
                 string[,] Board = move.Piece();
-                for (int i = 0; i <= 18; i++)
+                for (int i = 0; i <= 18; i++)//把棋盘和辅助坐标打印出来
                 {
                     if (i % 2 == 0)
                     {
@@ -41,7 +41,7 @@ namespace ConsoleApp1
                 int X = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Y =");
                 int Y = Convert.ToInt32(Console.ReadLine());
-                move.movechess(X * 2, Y, chozenX * 2, chozenY);
+                move.movechess(X * 2, Y, chozenX * 2, chozenY);//进行棋子的移动
             }
         }
     }
