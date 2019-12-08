@@ -6,8 +6,6 @@ namespace ConsoleApp1
 {
     class ChessBoard
     {
-
-        //The method of drawing chess board
         public static string[,] DrawingBoard()
         {
             string[,] Board = new string[19, 9];

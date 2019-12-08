@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT\\Chess\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "D:\\C#\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "D:\\GIT\\Chess\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "D:\\C#\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\Chess\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "D:\\C#\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "D:\\GIT\\Chess\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\Chess\\Chinese-Chess\\棋盘\\ConsoleApp1\\obj\\",
+        "projectPath": "D:\\C#\\Chinese-Chess\\棋盘\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\Chinese-Chess\\棋盘\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

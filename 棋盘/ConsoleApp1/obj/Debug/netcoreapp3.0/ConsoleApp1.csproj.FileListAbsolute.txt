@@ -20,3 +20,14 @@ D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp
 D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.AssemblyInfo.cs
 D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.dll
 D:\GIT\Chess\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.pdb
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.exe
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.deps.json
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.runtimeconfig.json
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.runtimeconfig.dev.json
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.dll
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\bin\Debug\netcoreapp3.0\ConsoleApp1.pdb
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.csprojAssemblyReference.cache
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.AssemblyInfoInputs.cache
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.AssemblyInfo.cs
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.dll
+D:\C#\Chinese-Chess\棋盘\ConsoleApp1\obj\Debug\netcoreapp3.0\ConsoleApp1.pdb
