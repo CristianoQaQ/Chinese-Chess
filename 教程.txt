@@ -5,7 +5,7 @@
 1.git init // 初始化版本库 
 2.git add . // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件
 3.git commit -m "first commit" // 把添加的文件提交到版本库，并填写提交备注
-4、git remote add origin 你的远程库地址 // 把本地库与远程库关联
+4、git remote add origin //把本地库与远程库关联
 5、git push -u origin master // push 到远程仓库
 （如果git服务器中的README.md文件不在本地代码目录中会出现如下错误，导致无法上传代码到远程仓库中
  解决方法：可以通过如下命令进行代码合并
