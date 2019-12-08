@@ -8,7 +8,7 @@ namespace ConsoleApp1
     {
 
         //The method of drawing chess board
-        public static string[,] Board()
+        public static string[,] DrawingBoard()
         {
             string[,] Board = new string[19, 9];
             Console.Clear();
