@@ -149,7 +149,7 @@ namespace ConsoleApp1
             }
             else return false;
         }
-        public bool movechess(int X, int Y,int chozenX, int chozenY)//每种类型棋子的移动规则（未完成）
+        public bool movechess(int X, int Y,int chozenX, int chozenY)//每种类型棋子的移动规则
         {
             int i, j, k, n;
             switch (Matrix[chozenX, chozenY].item.type)
