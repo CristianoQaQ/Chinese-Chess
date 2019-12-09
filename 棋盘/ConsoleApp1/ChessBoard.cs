@@ -20,7 +20,7 @@ namespace ConsoleApp1
                 if (i % 2 == 0)
                 {
                     Board[i, 0] = "┣-";
-                    Board[i, 8] = "┫";
+                    Board[i, 8] = "┫ ";
                 }
                 else
                 {

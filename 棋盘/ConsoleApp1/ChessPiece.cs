@@ -32,7 +32,7 @@ namespace ConsoleApp1
         {
             public chess item;
         };//自定义一个结构用以整合为一个棋子
-        block[,] Matrix;//为棋子创建一个自定义的数组类型。
+        block[,] Matrix;//为棋子创建一个自定义的数组类型.
         public void resetground()//给每一个棋子类型赋予属性
         {
             Matrix = new block[19, 9];
@@ -110,15 +110,54 @@ namespace ConsoleApp1
             Matrix[18, 7].item.type = chesstype.ma;
             Matrix[18, 8].item.type = chesstype.che;
         }
+        public int turn = 0;
+        public bool Turn(int X, int Y, int chozenX, int chozenY)//在己方回合中不能选择对方棋子
+        {
+            if (turn == 0)
+            {
+                if (Matrix[chozenX, chozenY].item.side != player.red)
+                {
+                    return false;
+                }
+                else
+                {
+                    turn = 1;
+                    bool check = movechess(X, Y, chozenX, chozenY);
+                    if (check == true)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            else if (turn == 1)
+            {
+                if (Matrix[chozenX, chozenY].item.side != player.blue)
+                {
+                    return false;
+                }
+                else
+                {
+                    turn = 0;
+                    bool check = movechess(X, Y, chozenX, chozenY);
+                    if (check == true)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            else return false;
+        }
         public bool movechess(int X, int Y,int chozenX, int chozenY)//每种类型棋子的移动规则（未完成）
         {
-            int i, j, k, n = 0;
+            int i, j, k, n;
             switch (Matrix[chozenX, chozenY].item.type)
             {
                 case chesstype.che:
                     if (chozenX == X)
                     {
-                        i = chozenY < Y ? chozenY : Y;
+                        i = chozenY < Y ? chozenY : Y;//如果chozenY<Y为ture 返回chozenY 否则Y；
                         j = chozenY > Y ? chozenY : Y;
                         for (k = i + 1; k < j; k++)
                         {
@@ -140,6 +179,248 @@ namespace ConsoleApp1
                             }
                         }
                     }
+                    if(chozenX != X&& chozenY != Y)
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side ==  Matrix[X, Y].item.side )
+                    {
+                        return false;
+                    }
+                    setmove(X, Y, chozenX, chozenY);
+                    return true;
+                case chesstype.jiang:
+                    if (chozenX == X)
+                    {
+                        i = chozenY < Y ? chozenY : Y;
+                        j = chozenY > Y ? chozenY : Y;
+                        for (k = i + 1; k < j; k++)
+                        {
+                            if (Matrix[X, k].item.side != player.blank)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    if (Matrix[X,Y].item.type == chesstype.jiang && chozenY == Y)
+                    {
+                        i = chozenX < X ? chozenX : X;
+                        j = chozenX > X ? chozenX : X;
+                        for (k = i + 1; k < j; k++)
+                        {
+                            if (Matrix[k, Y].item.side != player.blank)
+                            {
+                                return false;
+                            }
+                        }
+                        if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                        {
+                            return false;
+                        }
+                        setmove(X, Y, chozenX, chozenY);
+                        return true;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == player.blue)
+                    {
+                        if (Y < 3 || Y > 5 || X > 4)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (Y < 3 || Y > 5 || X < 14)
+                        {
+                            return false;
+                        }
+                    }
+                    if ((chozenX/2 - X/2) * (chozenX/2 - X/2) + (chozenY - Y) * (chozenY - Y) != 1)
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                    {
+                        return false;
+                    }
+                    setmove(X, Y, chozenX, chozenY);
+                    return true;
+                case chesstype.ma:
+                    if (Math.Abs(chozenX / 2 - X / 2) == 1 && Math.Abs(chozenY - Y) == 2)//Math.Abs 返回指定数的绝对值
+                    {
+                        if (Matrix[chozenX, chozenY + (Y - chozenY) / Math.Abs(Y - chozenY)].item.side != player.blank)
+                        {
+                            return false;
+                        }
+                    }
+                    else if (Math.Abs(chozenX / 2 - X / 2) == 2 && Math.Abs(chozenY - Y) == 1)
+                    {
+                        if (Matrix[chozenX + (X  - chozenX ) / Math.Abs(X  - chozenX )*2, chozenY].item.side != player.blank)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                    {
+                        return false;
+                    }
+                    setmove(X, Y, chozenX, chozenY);
+                    return true;
+                case chesstype.pao:
+                    if (chozenX == X)
+                    {
+                        i = chozenY < Y ? chozenY : Y;
+                        j = chozenY > Y ? chozenY : Y;
+                        n = 0;
+                        for (k = i + 1; k < j; k++)
+                        {
+                            if (Matrix[X,k].item.side != player.blank)
+                            {
+                                n++;
+                            }
+                        }
+                        if (n > 1)
+                        {
+                            return false;
+                        }
+                    }
+                    else if (chozenY == Y)
+                    {
+                        i = chozenX < X ? chozenX : X;
+                        j = chozenX > X ? chozenX : X;
+                        n = 0;
+                        for (k = i + 1; k < j; k++)
+                        {
+                            if (Matrix[k,Y].item.side != player.blank)
+                            {
+                                n++;
+                            }
+                        }
+                        if (n > 1)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    if (n == 0 && Matrix[X,Y].item.side != player.blank)
+                    {
+                        return false;
+                    }
+                    if (n == 1 && Matrix[X,Y].item.side == player.blank)
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                    {
+                        return false;
+                    }
+                    setmove(X, Y, chozenX, chozenY);
+                    return true;
+                case chesstype.shi:
+                    if (Matrix[chozenX,chozenY].item.side == player.blue)
+                    {
+                        if (Y < 3 || Y > 5 || X > 4)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (Y < 3 || Y > 5 || X < 14)
+                        {
+                            return false;
+                        }
+                    }
+                    if (Math.Abs(X - chozenX) != 2 || Math.Abs(chozenY - Y) != 1)
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                    {
+                        return false;
+                    }
+                    setmove(X, Y, chozenX, chozenY);
+                    return true;
+                case chesstype.xiang:
+                    if (Matrix[chozenX,chozenY].item.side == player.blue)
+                    {
+                        if (X > 8)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (X < 10)
+                        {
+                            return false;
+                        }
+                    }
+                    if ((X - chozenX)/2 * (X - chozenX)/2 + (chozenY - Y) * (chozenY - Y) != 8)
+                    {
+                        return false;
+                    }
+                    if (Matrix[(X + chozenX) / 2,(Y + chozenY) / 2].item.side != player.blank)
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                    {
+                        return false;
+                    }
+                    setmove(X, Y, chozenX, chozenY);
+                    return true;
+                case chesstype.zu:
+                    if (X != chozenX && Y != chozenY)
+                    {
+                        return false;
+                    }
+                    if (Matrix[chozenX,chozenY].item.side == player.blue)
+                    {
+                        if (chozenX < 10 && X - chozenX != 2)
+                        {
+                            return false;
+                        }
+                        if (chozenX > 8)
+                        {
+                            if (X == chozenX && Math.Abs(Y - chozenY) != 1)
+                            {
+                                return false;
+                            }
+                            if (Y == chozenY && X - chozenX != 2)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (chozenX > 8 && chozenX - X != 2)
+                        {
+                            return false;
+                        }
+                        if (chozenX < 10)
+                        {
+                            if (X == chozenX && Math.Abs(Y - chozenY) != 1)
+                            {
+                                return false;
+                            }
+                            if (Y == chozenY && chozenX - X != 2)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    if (Matrix[chozenX, chozenY].item.side == Matrix[X, Y].item.side)
+                    {
+                        return false;
+                    }
                     setmove(X, Y, chozenX, chozenY);
                     return true;
             }
@@ -151,6 +432,30 @@ namespace ConsoleApp1
             Matrix[chozenX, chozenY].item.side = player.blank;
             Matrix[chozenX, chozenY].item.type = chesstype.blank;
         }
+        public bool Result()//胜利条件
+        {
+            int n = 0;
+            bool result = true;
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (Matrix[i, j].item.type == chesstype.jiang)
+                    {
+                        n++;
+                    }
+                }
+            }
+            if (n == 2)
+            {
+                return result;
+            }
+            else
+            {
+                result = false;
+                return  result;
+            }
+        }
         public string[,] Piece()//把棋子放进棋盘中
         {
             string[,] board = ChessBoard.DrawingBoard();
@@ -161,6 +466,7 @@ namespace ConsoleApp1
                 {
                     if(Matrix[i,j].item.side == player.red)
                     {
+                       
                         if (Matrix[i, j].item.type == chesstype.che)
                         {
                             layout[i, j] = "車";
@@ -185,10 +491,11 @@ namespace ConsoleApp1
                         {
                             layout[i, j] = "砲";
                         }
-                        else if (Matrix[i, j].item.type == chesstype.zu)
+                        else if(Matrix[i, j].item.type == chesstype.zu)
                         {
                             layout[i, j] = "卒";
                         }
+
                     }
                     if (Matrix[i, j].item.side == player.blue)
                     {
@@ -220,12 +527,65 @@ namespace ConsoleApp1
                         {
                             layout[i, j] = "兵";
                         }
+                        
                     }
                 }
             }
-
-
             return layout;
+        }
+        public bool Checkpiece(int chozenX, int chozenY)//检测选中的是否棋子
+        {
+            if (Matrix[chozenX, chozenY].item.type != chesstype.blank)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void display()
+        {
+            string[,] Board = Piece();
+
+            for (int i = 0; i <= 18; i++)//把棋盘和辅助坐标打印出来
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                if (i % 2 == 0)
+                {
+                    Console.Write("    " + i / 2 + "    ");
+                }
+                else
+                {
+                    Console.Write("         ");
+
+                }
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                for (int j = 0; j < 9; j++)
+                {
+                    if(Matrix[i,j].item.side == player.blue)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(Board[i, j]);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    }
+                    else if (Matrix[i, j].item.side == player.red)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(Board[i, j]);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    }
+                    else { Console.Write(Board[i, j]); }
+                }
+                Console.Write("\n");
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write("    X/Y   ");
+            for (int j = 0; j < 9; j++)
+            {
+                Console.Write(j + " ");
+            }
         }
     }
 }
