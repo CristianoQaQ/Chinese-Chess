@@ -1,0 +1,15 @@
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\View.exe
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\View.deps.json
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\View.runtimeconfig.json
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\View.runtimeconfig.dev.json
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\View.dll
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\View.pdb
+C:\Users\SUNNY\source\repos\Xiangqi\View\obj\Debug\netcoreapp3.1\View.csprojAssemblyReference.cache
+C:\Users\SUNNY\source\repos\Xiangqi\View\obj\Debug\netcoreapp3.1\View.AssemblyInfoInputs.cache
+C:\Users\SUNNY\source\repos\Xiangqi\View\obj\Debug\netcoreapp3.1\View.AssemblyInfo.cs
+C:\Users\SUNNY\source\repos\Xiangqi\View\obj\Debug\netcoreapp3.1\View.dll
+C:\Users\SUNNY\source\repos\Xiangqi\View\obj\Debug\netcoreapp3.1\View.pdb
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\Model.exe
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\SUNNY\source\repos\Xiangqi\View\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\SUNNY\source\repos\Xiangqi\View\obj\Debug\netcoreapp3.1\View.csproj.CopyComplete

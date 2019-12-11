@@ -23,10 +23,16 @@ namespace ConsoleApp1
             zu,
             shi
         };//分为不同的棋子类型
+        enum chessroad
+        {
+            can,
+            cant
+        };
         struct chess
         {
             public player side;
             public chesstype type;
+            public chessroad road;
         };//自定义红蓝方和棋子类型两个结构
         struct block
         {
@@ -121,10 +127,10 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    turn = 1;
                     bool check = movechess(X, Y, chozenX, chozenY);
                     if (check == true)
                     {
+                        turn = 1;
                         return true;
                     }
                     else return false;
@@ -138,10 +144,10 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    turn = 0;
                     bool check = movechess(X, Y, chozenX, chozenY);
                     if (check == true)
                     {
+                        turn = 0;
                         return true;
                     }
                     else return false;
@@ -477,23 +483,23 @@ namespace ConsoleApp1
                         }
                         else if (Matrix[i, j].item.type == chesstype.xiang)
                         {
-                            layout[i, j] = "象";
+                            layout[i, j] = "象"; 
                         }
                         else if (Matrix[i, j].item.type == chesstype.shi)
                         {
-                            layout[i, j] = "士";
+                            layout[i, j] = "仕";
                         }
                         else if (Matrix[i, j].item.type == chesstype.jiang)
                         {
-                            layout[i, j] = "将";
+                            layout[i, j] = "帅";
                         }
                         else if (Matrix[i, j].item.type == chesstype.pao)
                         {
-                            layout[i, j] = "砲";
+                            layout[i, j] = "炮";
                         }
                         else if(Matrix[i, j].item.type == chesstype.zu)
                         {
-                            layout[i, j] = "卒";
+                            layout[i, j] = "兵";
                         }
 
                     }
@@ -513,19 +519,19 @@ namespace ConsoleApp1
                         }
                         else if (Matrix[i, j].item.type == chesstype.shi)
                         {
-                            layout[i, j] = "仕";
+                            layout[i, j] = "士"; 
                         }
                         else if (Matrix[i, j].item.type == chesstype.jiang)
                         {
-                            layout[i, j] = "帅";
+                            layout[i, j] = "将";
                         }
                         else if (Matrix[i, j].item.type == chesstype.pao)
                         {
-                            layout[i, j] = "炮";
+                            layout[i, j] = "砲";
                         }
                         else if (Matrix[i, j].item.type == chesstype.zu)
                         {
-                            layout[i, j] = "兵";
+                            layout[i, j] = "卒";
                         }
                         
                     }
@@ -533,13 +539,35 @@ namespace ConsoleApp1
             }
             return layout;
         }
-        public bool Checkpiece(int chozenX, int chozenY)//检测选中的是否棋子
+        public int Checkpiece(int chozenX, int chozenY)//检测选中的是否棋子
         {
-            if (Matrix[chozenX, chozenY].item.type != chesstype.blank)
+            if (Matrix[chozenX, chozenY].item.type == chesstype.blank)
             {
-                return true;
+                return 0;
             }
-            return false;
+            else if(turn == 0)
+                {
+                if (Matrix[chozenX, chozenY].item.side != player.red)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+                }
+            else if (turn == 1)
+            {
+                if (Matrix[chozenX, chozenY].item.side != player.blue)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            return 0;
         }
         public void display()
         {
@@ -562,21 +590,140 @@ namespace ConsoleApp1
                 {
                     if(Matrix[i,j].item.side == player.blue)
                     {
-                        Console.BackgroundColor = ConsoleColor.Yellow;
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.Write(Board[i, j]);
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.Write(Board[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    }
+                    else if (Matrix[i, j].item.side == player.red)
+                    { 
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(Board[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    }
+                    else {Console.Write(Board[i, j]);}
+                }
+                Console.Write("\n");
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write("    X/Y   ");
+            for (int j = 0; j < 9; j++)
+            {
+                Console.Write(j + " ");
+            }
+        }
+        //============================================================================
+        block[,] trans;
+        block[,] road;
+        public void setroad()
+        {
+            road = new block[19, 9];
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    road[i, j].item.road = chessroad.cant;
+                }
+            }
+        }
+        public void printfroad(int chozenX, int chozenY)
+        {
+            trans = new block[19, 9];
+            setroad();
+            bool cr ;
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        trans[i, j].item = Matrix[i, j].item;
+                        trans[chozenX, chozenY].item = Matrix[chozenX, chozenY].item;
+                        cr = movechess(i, j, chozenX, chozenY);
+                        if (cr == true)
+                        { 
+                            road[i, j].item.road = chessroad.can;
+                        }
+                        Matrix[i, j].item = trans[i, j].item;
+                        Matrix[chozenX, chozenY].item = trans[chozenX, chozenY].item;
+                    }
+                }
+            }
+            Console.ReadLine();
+            string[,] Board = Piece();
+
+            for (int i = 0; i <= 18; i++)//把棋盘和辅助坐标打印出来
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                if (i % 2 == 0)
+                {
+                    Console.Write("    " + i / 2 + "    ");
+                }
+                else
+                {
+                    Console.Write("         ");
+
+                }
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                for (int j = 0; j < 9; j++)
+                {
+                    if (Matrix[i, j].item.side == player.blue)
+                    {
+                        if (road[i, j].item.road == chessroad.can)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.Write(Board[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            road[i, j].item.road = chessroad.cant;
+                        }
+                        else
+                        {
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.Write(Board[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        }
                     }
                     else if (Matrix[i, j].item.side == player.red)
                     {
-                        Console.BackgroundColor = ConsoleColor.Yellow;
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(Board[i, j]);
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        if (road[i, j].item.road == chessroad.can)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(Board[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            road[i, j].item.road = chessroad.cant;
+                        }
+                        else
+                        {
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(Board[i, j]);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        }
                     }
-                    else { Console.Write(Board[i, j]); }
+                    else
+                    {
+                        if (road[i, j].item.road == chessroad.can)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.Write(Board[i, j]);
+                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            road[i, j].item.road = chessroad.cant;
+                        }
+                        else
+                        {
+                            Console.Write(Board[i, j]);
+                        }
+                    }
                 }
                 Console.Write("\n");
             }

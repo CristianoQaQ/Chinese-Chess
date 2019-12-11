@@ -1,0 +1,11 @@
+C:\Users\SUNNY\source\repos\Xiangqi\Model\obj\Debug\netcoreapp3.1\Model.csprojAssemblyReference.cache
+C:\Users\SUNNY\source\repos\Xiangqi\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+C:\Users\SUNNY\source\repos\Xiangqi\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
+C:\Users\SUNNY\source\repos\Xiangqi\Model\bin\Debug\netcoreapp3.1\Model.exe
+C:\Users\SUNNY\source\repos\Xiangqi\Model\bin\Debug\netcoreapp3.1\Model.deps.json
+C:\Users\SUNNY\source\repos\Xiangqi\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.json
+C:\Users\SUNNY\source\repos\Xiangqi\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.dev.json
+C:\Users\SUNNY\source\repos\Xiangqi\Model\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\SUNNY\source\repos\Xiangqi\Model\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\SUNNY\source\repos\Xiangqi\Model\obj\Debug\netcoreapp3.1\Model.dll
+C:\Users\SUNNY\source\repos\Xiangqi\Model\obj\Debug\netcoreapp3.1\Model.pdb
