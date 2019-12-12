@@ -132,19 +132,21 @@ namespace Controller
                 }
                 try
                 {
-                    Console.Write("ChozenX =");
+                    Console.Write("====================================\n");
+                    Console.Write("            ChozenX =");
                     int chozenX = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("ChozenY =");
+                    Console.Write("            ChozenY =");
                     int chozenY = Convert.ToInt32(Console.ReadLine());
                     int checkpiece = con.Checkpiece(chozenX * 2, chozenY, Matrix);
                     if (checkpiece == 2)//检测是否有棋子
                     {
                         view.printfroad(chozenX * 2, chozenY, Matrix);
-                        Console.Write("\nWe get the piece:" + Board[chozenX * 2, chozenY] + "(" + chozenX + "," + chozenY + ").\n");
+                        Console.Write("\n        We get the piece:" + Board[chozenX * 2, chozenY] + "(" + chozenX + "," + chozenY + ").\n");
                         Console.Write("Please  choose the position you want to move:\n");
-                        Console.Write("movetoX =");
+                        Console.Write("====================================\n");
+                        Console.Write("            movetoX =");
                         int X = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("movetoY =");
+                        Console.Write("            movetoY =");
                         int Y = Convert.ToInt32(Console.ReadLine());
                         turn = con.Turn(X * 2, Y, chozenX * 2, chozenY, Matrix);
                         if (turn == false)//检测是否可以移动到这个坐标
@@ -154,7 +156,7 @@ namespace Controller
                         }
                         else
                         {
-                            Console.Write("Move success!");
+                            Console.Write("           Move success!");
                             Console.ReadLine();
                             player++;
                         }
@@ -162,12 +164,12 @@ namespace Controller
                     }
                     else if (checkpiece == 0)
                     {
-                        Console.Write("                 There is no piece.\n");
+                        Console.Write("       There is no piece.\n");
                         Console.ReadLine();
                     }
                     else
                     {
-                        Console.Write("                 You can not choose it.\n");
+                        Console.Write("       You can not choose it.\n");
                         Console.ReadLine();
                     }
                 }
@@ -181,14 +183,14 @@ namespace Controller
             if (player % 2 == 1)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("\n==========================\n");
-                Console.Write("           Red Win");
+                Console.Write("\n     ==========================\n");
+                Console.Write("               Red Win");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("\n==========================\n");
-                Console.Write("           Blue Win");
+                Console.Write("\n      ==========================\n");
+                Console.Write("               Blue Win");
             }
             Console.ReadKey();
         }

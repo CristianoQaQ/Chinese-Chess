@@ -59,7 +59,6 @@ namespace View
         public void printfroad(int chozenX, int chozenY, ProgramMod.block[,] Matrix)
         {
             ProgramMod.block[,] road = mod.road( chozenX, chozenY,Matrix);
-            Console.ReadLine();
             string[,] Board = mod.Piece(Matrix);
 
             for (int i = 0; i <= 18; i++)
