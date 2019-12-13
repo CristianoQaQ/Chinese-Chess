@@ -9,6 +9,7 @@ namespace Controller
     {
         public bool zu(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)
         {
+            ProgramCon con = new ProgramCon();
             if (X != chozenX && Y != chozenY)
             {
                 return false;
@@ -53,7 +54,7 @@ namespace Controller
             {
                 return false;
             }
-            Setmove(X, Y, chozenX, chozenY, Matrix);
+            con.Setmove(X, Y, chozenX, chozenY, Matrix);
             return true;
         }
     }

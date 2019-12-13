@@ -5,10 +5,11 @@ using Model;
 
 namespace Controller
 {
-    class Xiang : ProgramCon
+    class Xiang 
     {
         public bool xiang(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)
         {
+            ProgramCon con = new ProgramCon();
             if (Matrix[chozenX, chozenY].side ==Chess.player.blue)
             {
                 if (X > 8)
@@ -35,7 +36,7 @@ namespace Controller
             {
                 return false;
             }
-            Setmove(X, Y, chozenX, chozenY, Matrix);
+            con.Setmove(X, Y, chozenX, chozenY, Matrix);
             return true;
         }
     }

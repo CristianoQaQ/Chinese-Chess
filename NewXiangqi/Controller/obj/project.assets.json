@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/Model.dll": {}
         }
-      },
-      "View/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Model": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/View.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/View.dll": {}
-        }
       }
     }
   },
@@ -32,17 +19,11 @@
       "type": "project",
       "path": "../Model/Model.csproj",
       "msbuildProject": "../Model/Model.csproj"
-    },
-    "View/1.0.0": {
-      "type": "project",
-      "path": "../View/View.csproj",
-      "msbuildProject": "../View/View.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Model >= 1.0.0",
-      "View >= 1.0.0"
+      "Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -73,9 +54,6 @@
           "projectReferences": {
             "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj": {
               "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj"
-            },
-            "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj": {
-              "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj"
             }
           }
         }

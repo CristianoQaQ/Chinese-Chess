@@ -5,10 +5,11 @@ using Model;
 
 namespace Controller
 {
-    class Ma : ProgramCon
+    class Ma 
     {
         public bool ma(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)
         {
+            ProgramCon con = new ProgramCon();
             if (Math.Abs(chozenX / 2 - X / 2) == 1 && Math.Abs(chozenY - Y) == 2)//Math.Abs 返回指定数的绝对值
             {
                 if (Matrix[chozenX, chozenY + (Y - chozenY) / Math.Abs(Y - chozenY)].side != Chess.player.blank)
@@ -31,7 +32,7 @@ namespace Controller
             {
                 return false;
             }
-            Setmove(X, Y, chozenX, chozenY, Matrix);
+            con.Setmove(X, Y, chozenX, chozenY, Matrix);
             return true;
         }
     }

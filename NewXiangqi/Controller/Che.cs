@@ -5,10 +5,11 @@ using Model;
 
 namespace Controller
 {
-    class Che : ProgramCon
+    class Che 
     {
         public bool che(int X, int Y, int chozenX ,int chozenY,Chess[,]Matrix)
         {
+            ProgramCon con = new ProgramCon();
             int i, j, k;
             if (chozenX == X)
             {
@@ -42,7 +43,7 @@ namespace Controller
             {
                 return false;
             }
-            Setmove(X, Y, chozenX, chozenY, Matrix);
+            con.Setmove(X, Y, chozenX, chozenY, Matrix);
             return true;
         }
     }

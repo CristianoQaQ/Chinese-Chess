@@ -5,10 +5,11 @@ using Model;
 
 namespace Controller
 {
-    class Shi : ProgramCon
+    class Shi 
     {
         public bool shi(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)
         {
+            ProgramCon con = new ProgramCon();
             if (Matrix[chozenX, chozenY].side == Chess.player.blue)
             {
                 if (Y < 3 || Y > 5 || X > 4)
@@ -31,7 +32,7 @@ namespace Controller
             {
                 return false;
             }
-            Setmove(X, Y, chozenX, chozenY, Matrix);
+            con.Setmove(X, Y, chozenX, chozenY, Matrix);
             return true;
         }
     }

@@ -99,33 +99,17 @@ namespace Model
             switch (Matrix[i, j].side)
             {
                 case Chess.player.red:
-                    switch (Matrix[i, j].type)
-                    {
-                        case Chess.chesstype.che:
-                            str = "車";
-                            return str;
-                        case Chess.chesstype.ma:
-                            str = "马";
-                            return str;
-                        case Chess.chesstype.xiang:
-                            str = "象";
-                            return str;
-                        case Chess.chesstype.shi:
-                            str = "仕";
-                            return str;
-                        case Chess.chesstype.jiang:
-                            str = "帅";
-                            return str;
-                        case Chess.chesstype.pao:
-                            str = "炮";
-                            return str;
-                        case Chess.chesstype.zu:
-                            str = "兵";
-                            return str;
-                    }
+                    str = Str(Matrix, str, i, j);
                     return str;
                 case Chess.player.blue:
-                    switch (Matrix[i, j].type)
+                    str = Str(Matrix, str, i, j);
+                    return str;
+            }
+            return str;
+        }
+        public string Str(Chess[,] Matrix, string str, int i, int j)
+        {
+            switch (Matrix[i, j].type)
                     {
                         case Chess.chesstype.che:
                             str = "车";
@@ -150,8 +134,6 @@ namespace Model
                             return str;
                     }
                     return str;
-            }
-            return str;
         }
         public static string[,] DrawingBoard()//棋盘模型
         {

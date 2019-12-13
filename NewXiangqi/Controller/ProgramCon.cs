@@ -1,12 +1,11 @@
 ﻿using System;
 using Model;
-using View;
 namespace Controller
 {
-    abstract class ProgramCon
+    public class ProgramCon
     {
-        public static int turn = 0;
-        public static int Checkpiece(int chozenX, int chozenY, Chess[,] Matrix)//检测选中的是否棋子
+        public int turn = 0;
+        public int Checkpiece(int chozenX, int chozenY, Chess[,] Matrix)//检测选中的是否棋子
         {
             if (Matrix[chozenX, chozenY].type == Chess.chesstype.blank)
             {
@@ -36,7 +35,7 @@ namespace Controller
             }
             return 0;
         }
-        public static bool Turn(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)//在己方回合中不能选择对方棋子
+        public bool Turn(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)//在己方回合中不能选择对方棋子
         {
             if (turn == 0)
             {
@@ -74,7 +73,7 @@ namespace Controller
             }
             else return false;
         }
-        public static bool Result(Chess[,] Matrix)//判断游戏是否结束
+        public bool Result(Chess[,] Matrix)//判断游戏是否结束
         {
             int n = 0;
             bool result = true;
@@ -98,7 +97,7 @@ namespace Controller
                 return result;
             }
         }
-        public static bool movechess(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)//每种类型棋子的移动规则
+        public bool movechess(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)//每种类型棋子的移动规则
         {
             Che che = new Che();
             Ma ma = new Ma();
@@ -141,7 +140,7 @@ namespace Controller
             Matrix[chozenX, chozenY].side = Chess.player.blank;
             Matrix[chozenX, chozenY].type = Chess.chesstype.blank;
         }
-        public static Chess[,] Road(int chozenX, int chozenY, Chess[,] Matrix)
+        public Chess[,] Road(int chozenX, int chozenY, Chess[,] Matrix)
         {
             ProgramMod mod = new ProgramMod();
             Chess[,] road = mod.Setroad();
@@ -178,64 +177,9 @@ namespace Controller
             }
             return road;
         }
-        public static void Process(Chess[,] Matrix,Chess[,]road)//整个流程的调用
-        {
-            ProgramMod mod = new ProgramMod();
-            ProgramView view = new ProgramView();
-            bool result = true;
-            bool turn;
-            int player = 0;
-            while (result == true)
-            {
-                string[,] Board = mod.Piece(Matrix);
-                view.display(Matrix,road);
-                view.Star(player);
-                try
-                {
-                    Console.Write("====================================\n");
-                    Console.Write("            ChozenX =");
-                    int chozenX = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("            ChozenY =");
-                    int chozenY = Convert.ToInt32(Console.ReadLine());
-                    int checkpiece = Checkpiece(chozenX * 2, chozenY, Matrix);
-                    if (checkpiece == 2)//检测是否有棋子
-                    {
-                        road = Road(chozenX*2, chozenY, Matrix);
-                        view.display(Matrix, road);
-                        road = mod.Setroad();
-                        view.Check(checkpiece,Board,chozenX,chozenY);
-                        Console.Write("            movetoX =");
-                        int X = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("            movetoY =");
-                        int Y = Convert.ToInt32(Console.ReadLine());
-                        turn = Turn(X * 2, Y, chozenX * 2, chozenY, Matrix);
-                        player = view.Move(turn, player);
-                        result = Result(Matrix);
-                    }
-                    else if (checkpiece == 0)
-                    {
-                        view.Check(checkpiece, Board, chozenX, chozenY);
-                    }
-                    else
-                    {
-                        view.Check(checkpiece, Board, chozenX, chozenY);
-                    }
-                }
-                catch (Exception)
-                {
-                    view.Wrong();
-                }
-            }
-            view.display(Matrix,road);
-            view.Win(player);
-            Console.ReadKey();
-        }
         static void Main(string[] args)
         {
-            ProgramMod mod = new ProgramMod();
-            Chess [,] Matrix = mod.Resetground();
-            Chess[,] road = mod.Setroad();
-            Process(Matrix,road);
+            
         }
     }
 }
