@@ -182,23 +182,26 @@ namespace Model
                 Board[18, j] = "┻-";
             }
 
-            for (int k = 1; k < 8; k++)
+            for (int i = 0; i < 18; i++)
             {
-                Board[1, k] = "┃ ";
-                Board[2, k] = "╋-";
-                Board[3, k] = "┃ ";
-                Board[4, k] = "╋-";
-                Board[5, k] = "┃ ";
-                Board[6, k] = "╋-";
-                Board[7, k] = "┃ ";
-                Board[9, k] = "  ";
-                Board[11, k] = "┃ ";
-                Board[12, k] = "╋-";
-                Board[13, k] = "┃ ";
-                Board[14, k] = "╋-";
-                Board[15, k] = "┃ ";
-                Board[16, k] = "╋-";
-                Board[17, k] = "┃ ";
+                for (int k = 1; k < 8; k++)
+                {
+                    if (i % 2 == 1)
+                    {
+                        Board[i, k] = "┃ ";
+                        if (i == 9)
+                        {
+                            Board[i, k] = "  ";
+                        }
+                    }
+                    else
+                    {
+                        if (i != 8 && i != 10)
+                        {
+                            Board[i, k] = "╋-";
+                        } 
+                    }
+                }
             }
             Board[1, 3] = "┃";
             Board[3, 3] = "┃";

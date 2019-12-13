@@ -15,21 +15,22 @@ namespace View
             if (star % 2 == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("\n");
-                Console.Write("              GAME STAR\n");
-                Console.Write("        Now the player is Red\n");
-                Console.Write("Please  choose the position of the piece:\n");
+                St();
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("\n");
-                Console.Write("              GAME STAR\n");
-                Console.Write("        Now the player is Blue\n");
-                Console.Write("Please  choose the position of the piece:\n");
+                St();
                 Console.ForegroundColor = ConsoleColor.White;
             }
+        }
+        public void St()
+        {
+            Console.Write("\n");
+            Console.Write("              GAME STAR\n");
+            Console.Write("        Now the player is Blue\n");
+            Console.Write("Please  choose the position of the piece:\n");
         }
         public int Move(bool turn, int player)
         {
@@ -107,40 +108,24 @@ namespace View
                     {
                         if (road[i, j].road == Chess.chessroad.can)
                         {
-                            Console.BackgroundColor = ConsoleColor.Green;
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.Write(Board[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            Colorgreen(Board, i, j);
                             road[i, j].road = Chess.chessroad.cant;
                         }
                         else
                         {
-                            Console.BackgroundColor = ConsoleColor.Yellow;
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.Write(Board[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            Coloryellow(Board, i, j);
                         }
                     }
                     else if (Matrix[i, j].side == Chess.player.red)
                     {
                         if (road[i, j].road == Chess.chessroad.can)
                         {
-                            Console.BackgroundColor = ConsoleColor.Green;
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write(Board[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            Colorgreen(Board, i, j);
                             road[i, j].road = Chess.chessroad.cant;
                         }
                         else
                         {
-                            Console.BackgroundColor = ConsoleColor.Yellow;
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write(Board[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkYellow;
+                            Coloryellow(Board, i, j);
                         }
                     }
                     else
@@ -166,6 +151,22 @@ namespace View
             {
                 Console.Write(j + " ");
             }
+        }
+        public void Colorgreen(string[,] Board,int i ,int j)
+        {
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write(Board[i, j]);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+        }
+        public void Coloryellow(string[,] Board, int i, int j)
+        {
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write(Board[i, j]);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
         }
     }
 }
