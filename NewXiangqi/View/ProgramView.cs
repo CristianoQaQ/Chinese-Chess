@@ -113,7 +113,7 @@ namespace View
                         }
                         else
                         {
-                            Coloryellow(Board, i, j);
+                            Coloryellow(Matrix ,Board, i, j);
                         }
                     }
                     else if (Matrix[i, j].side == Chess.player.red)
@@ -125,7 +125,7 @@ namespace View
                         }
                         else
                         {
-                            Coloryellow(Board, i, j);
+                            Coloryellow(Matrix,Board, i, j);
                         }
                     }
                     else
@@ -160,10 +160,17 @@ namespace View
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
         }
-        public void Coloryellow(string[,] Board, int i, int j)
+        public void Coloryellow(Chess[,] Matrix,string[,] Board, int i, int j)
         {
             Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.ForegroundColor = ConsoleColor.Blue;
+            if (Matrix[i, j].side == Chess.player.red)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else if (Matrix[i, j].side == Chess.player.blue)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+            }
             Console.Write(Board[i, j]);
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkYellow;

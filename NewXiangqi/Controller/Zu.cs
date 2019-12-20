@@ -5,7 +5,7 @@ using Model;
 
 namespace Controller
 {
-    class Zu : ProgramCon
+    class Zu 
     {
         public bool zu(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)
         {
