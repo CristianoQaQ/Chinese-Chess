@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj": {}
+    "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\View.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj": {
+    "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj",
+        "projectUniqueName": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\obj\\",
+        "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,17 +56,17 @@
         }
       }
     },
-    "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj": {
+    "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\View.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj",
+        "projectUniqueName": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\View.csproj",
         "projectName": "View",
-        "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj",
-        "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\obj\\",
+        "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\View.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,8 +79,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj"
+              "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj": {
+                "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj"
               }
             }
           }

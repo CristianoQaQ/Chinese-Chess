@@ -42,16 +42,22 @@ namespace View
         {
             Grid maingrid = new Grid();
             this.Content = maingrid;
-            maingrid.Background = Brushes.BurlyWood;
             Grid grid = new Grid();
             maingrid.Children.Add(grid);
             grid.HorizontalAlignment = HorizontalAlignment.Left;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            ImageBrush mainGrid = new ImageBrush();
+            mainGrid.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\background1.jpg", UriKind.RelativeOrAbsolute));
+            maingrid.Background = mainGrid;
+            
+          //背景颜色
+           
+
             //=======================================================================
 
             ImageBrush Board = new ImageBrush();
-            Board.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\Board.jpg", UriKind.RelativeOrAbsolute));
+            Board.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\Board.jpg", UriKind.RelativeOrAbsolute));
             grid.Background = Board;
             //=======================================================================
             
@@ -92,7 +98,7 @@ namespace View
                     {
                         btn[i, j].Width = 30;
                         btn[i, j].Height = 30;
-                        btn[i, j].Background = Brushes.ForestGreen;
+                        btn[i, j].Background = Brushes.ForestGreen;//路的颜色
                     }
                     grid.Children.Add(btn[i, j]);
                 }
@@ -104,12 +110,12 @@ namespace View
             TextBlock Textplayer = new TextBlock();
             maingrid.Children.Add(Textplayer);
             Textplayer.FontSize = 50;
-            Textplayer.Margin = new Thickness(720, 250, 0, 0);
+            Textplayer.Margin = new Thickness(705, 221, 0, 0);
             TextBlock operation = new TextBlock();
             maingrid.Children.Add(operation);
             if (chozentime % 2 == 0)
             {
-                operation.Text = "Select the piece";
+                operation.Text = "Select a piece";
             }
             else
             {
@@ -117,24 +123,24 @@ namespace View
             }
             operation.FontSize = 30;
             operation.Foreground = Brushes.Gray;
-            operation.Margin = new Thickness(720, 350, 0, 0);
+            operation.Margin = new Thickness(717, 350, 0, 0);
             if (player % 2 == 0)
             {
                 Textplayer.Foreground = Brushes.Red;
-                Textplayer.Text = "Red turn";
+                Textplayer.Text = "Red Turn";
             }
             else
             {
                 Textplayer.Foreground = Brushes.Blue;
-                Textplayer.Text = "blue turn";
+                Textplayer.Text = "Blue Turn";
             }
             Button Regret = new Button();
             maingrid.Children.Add(Regret);
-            Regret.Width = 200;
-            Regret.Height = 100;
-            Regret.Content = "Regret game";
+            Regret.Width = 175;
+            Regret.Height = 45;
+            Regret.Content = "Regret";
             Regret.FontSize = 30;
-            Regret.Margin = new Thickness(650, 250, 0, 0);
+            Regret.Margin = new Thickness(650, 250, 0, 50);
             Regret.Click += Regret_Game;
         }
         public void Regret_Game(object sender, RoutedEventArgs e)
@@ -260,11 +266,11 @@ namespace View
                         CreatGrid(Matrix);
                         if (player%2 == 1)
                         {
-                            MessageBox.Show("Game over,red win!");
+                            MessageBox.Show("Game over, RED win!");
                         }
                         else
                         {
-                            MessageBox.Show("Game over,blue win!");
+                            MessageBox.Show("Game over, Blue win!");
                         }
                         System.Environment.Exit(0);
                     }
@@ -282,37 +288,37 @@ namespace View
                     {
                         case Chess.chesstype.che:
                             ImageBrush Redche = new ImageBrush();
-                            Redche.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redche.png", UriKind.RelativeOrAbsolute));
+                            Redche.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redche.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redche;
                             return btn;
                         case Chess.chesstype.ma:
                             ImageBrush Redma = new ImageBrush();
-                            Redma.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redma.png", UriKind.RelativeOrAbsolute));
+                            Redma.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redma.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redma;
                             return btn;
                         case Chess.chesstype.xiang:
                             ImageBrush Redxiang = new ImageBrush();
-                            Redxiang.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redxiang.png", UriKind.RelativeOrAbsolute));
+                            Redxiang.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redxiang.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redxiang;
                             return btn;
                         case Chess.chesstype.shi:
                             ImageBrush Redshi = new ImageBrush();
-                            Redshi.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redshi.png", UriKind.RelativeOrAbsolute));
+                            Redshi.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redshi.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redshi;
                             return btn;
                         case Chess.chesstype.jiang:
                             ImageBrush Redjiang = new ImageBrush();
-                            Redjiang.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redjiang.png", UriKind.RelativeOrAbsolute));
+                            Redjiang.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redjiang.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redjiang;
                             return btn;
                         case Chess.chesstype.pao:
                             ImageBrush Redpao = new ImageBrush();
-                            Redpao.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redpao.png", UriKind.RelativeOrAbsolute));
+                            Redpao.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redpao.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redpao;
                             return btn;
                         case Chess.chesstype.zu:
                             ImageBrush Redzu = new ImageBrush();
-                            Redzu.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\redzu.png", UriKind.RelativeOrAbsolute));
+                            Redzu.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\redzu.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Redzu;
                             return btn;
                     }
@@ -322,37 +328,37 @@ namespace View
                     {
                         case Chess.chesstype.che:
                             ImageBrush Blueche = new ImageBrush();
-                            Blueche.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\blueche.png", UriKind.RelativeOrAbsolute));
+                            Blueche.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\blueche.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Blueche;
                             return btn;
                         case Chess.chesstype.ma:
                             ImageBrush Bluema = new ImageBrush();
-                            Bluema.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\bluema.png", UriKind.RelativeOrAbsolute));
+                            Bluema.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\bluema.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Bluema;
                             return btn;
                         case Chess.chesstype.xiang:
                             ImageBrush Bluexiang = new ImageBrush();
-                            Bluexiang.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\bluexiang.png", UriKind.RelativeOrAbsolute));
+                            Bluexiang.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\bluexiang.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Bluexiang;
                             return btn;
                         case Chess.chesstype.shi:
                             ImageBrush Blueshi = new ImageBrush();
-                            Blueshi.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\blueshi.png", UriKind.RelativeOrAbsolute));
+                            Blueshi.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\blueshi.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Blueshi;
                             return btn;
                         case Chess.chesstype.jiang:
                             ImageBrush Bluejiang = new ImageBrush();
-                            Bluejiang.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\bluejiang.png", UriKind.RelativeOrAbsolute));
+                            Bluejiang.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\bluejiang.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Bluejiang;
                             return btn;
                         case Chess.chesstype.pao:
                             ImageBrush Bluepao = new ImageBrush();
-                            Bluepao.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\bluepao.png", UriKind.RelativeOrAbsolute));
+                            Bluepao.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\bluepao.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Bluepao;
                             return btn;
                         case Chess.chesstype.zu:
                             ImageBrush Bluezu = new ImageBrush();
-                            Bluezu.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\bluezu.png", UriKind.RelativeOrAbsolute));
+                            Bluezu.ImageSource = new BitmapImage(new Uri(@"\GITPRO\Chinese-Chess\WPFXiangqi\Resources\bluezu.png", UriKind.RelativeOrAbsolute));
                             btn.Background = Bluezu;
                             return btn;
                     }

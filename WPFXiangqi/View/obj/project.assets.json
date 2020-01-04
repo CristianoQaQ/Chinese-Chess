@@ -46,19 +46,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SUNNY\\.nuget\\packages\\": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\View\\View.csproj",
+      "projectUniqueName": "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\View\\View.csproj",
       "projectName": "View",
-      "projectPath": "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\View\\View.csproj",
-      "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\View\\obj\\",
+      "projectPath": "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\View\\View.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\View\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -71,11 +71,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\Controller\\Controller.csproj": {
-              "projectPath": "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\Controller\\Controller.csproj"
+            "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\Controller\\Controller.csproj": {
+              "projectPath": "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\Controller\\Controller.csproj"
             },
-            "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\SUNNY\\source\\repos\\WPFXiangqi\\Model\\Model.csproj"
+            "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\Model\\Model.csproj": {
+              "projectPath": "G:\\GITPRO\\Chinese-Chess\\WPFXiangqi\\Model\\Model.csproj"
             }
           }
         }
