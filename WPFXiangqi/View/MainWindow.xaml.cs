@@ -103,7 +103,6 @@ namespace View
         {
             TextBlock Textplayer = new TextBlock();
             maingrid.Children.Add(Textplayer);
-            Textplayer.Text = "Red turn";
             Textplayer.FontSize = 50;
             Textplayer.Margin = new Thickness(720, 250, 0, 0);
             TextBlock operation = new TextBlock();
@@ -122,10 +121,12 @@ namespace View
             if (player % 2 == 0)
             {
                 Textplayer.Foreground = Brushes.Red;
+                Textplayer.Text = "Red turn";
             }
             else
             {
                 Textplayer.Foreground = Brushes.Blue;
+                Textplayer.Text = "blue turn";
             }
             Button Regret = new Button();
             maingrid.Children.Add(Regret);
@@ -257,7 +258,7 @@ namespace View
                     if (result == false)
                     {
                         CreatGrid(Matrix);
-                        if (player == 0)
+                        if (player%2 == 1)
                         {
                             MessageBox.Show("Game over,red win!");
                         }
