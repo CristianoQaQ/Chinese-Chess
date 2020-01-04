@@ -15,22 +15,21 @@ namespace View
             if (star % 2 == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                St();
+                Console.Write("\n");
+                Console.Write("              GAME STAR\n");
+                Console.Write("        Now the player is Red\n");
+                Console.Write("Please  choose the position of the piece:\n");
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                St();
+                Console.Write("\n");
+                Console.Write("              GAME STAR\n");
+                Console.Write("        Now the player is Blue\n");
+                Console.Write("Please  choose the position of the piece:\n");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-        }
-        public void St()
-        {
-            Console.Write("\n");
-            Console.Write("              GAME STAR\n");
-            Console.Write("        Now the player is Blue\n");
-            Console.Write("Please  choose the position of the piece:\n");
         }
         public int Move(bool turn, int player)
         {

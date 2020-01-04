@@ -67,6 +67,7 @@ namespace Controller
             }
             return road;
         }
+
         public bool movechess(int X, int Y, int chozenX, int chozenY, Chess[,] Matrix)//每种类型棋子的移动规则
         {
             Che che = new Che();

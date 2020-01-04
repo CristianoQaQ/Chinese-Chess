@@ -24,6 +24,7 @@ namespace View
     {
         public Chess[,] Matrix;
         public Chess[,] Road;
+        public Chess[,] Save;
         ProgramMod mod = new ProgramMod();
         public MainWindow()
         {
@@ -33,15 +34,18 @@ namespace View
         public void Processs()
         {
             Matrix = mod.Resetground();
+            Save = mod.Resetground();
             Road = mod.Setroad();
             CreatGrid(Matrix);
         }
         public void CreatGrid(Chess[,] Matrix)
         {
+            Grid maingrid = new Grid();
+            this.Content = maingrid;
+            maingrid.Background = Brushes.BurlyWood;
             Grid grid = new Grid();
-            ColumnDefinition[] c = new ColumnDefinition[9];
-            this.Content = grid;
-            grid.HorizontalAlignment = HorizontalAlignment.Center;
+            maingrid.Children.Add(grid);
+            grid.HorizontalAlignment = HorizontalAlignment.Left;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             //=======================================================================
@@ -50,43 +54,41 @@ namespace View
             Board.ImageSource = new BitmapImage(new Uri(@"\Users\SUNNY\source\repos\WPFXiangqi\Resources\Board.jpg", UriKind.RelativeOrAbsolute));
             grid.Background = Board;
             //=======================================================================
-
+            
+            ColumnDefinition[] col = new ColumnDefinition[9];
             for (int i = 0; i < 9; i++)
             {
-                c[i] = new ColumnDefinition();
-                c[i].Width = new GridLength(75);
-                grid.ColumnDefinitions.Add(c[i]);
+                col[i] = new ColumnDefinition();
+                col[i].Width = new GridLength(75);
+                grid.ColumnDefinitions.Add(col[i]);
             }
-            RowDefinition[] r = new RowDefinition[10];
+            RowDefinition[] row = new RowDefinition[10];
             for (int i = 0; i < 10; i++)
             {
-                r[i] = new RowDefinition();
-                r[i].Height = new GridLength(75);
-                grid.RowDefinitions.Add(r[i]);
+                row[i] = new RowDefinition();
+                row[i].Height = new GridLength(75);
+                grid.RowDefinitions.Add(row[i]);
             }
+            Tips(maingrid);
             layout(Matrix, grid);
         }
         public void layout(Chess[,] Matrix, Grid grid)
         {
             Button[,] btn = new Button[10, 9];
-            TextBlock[,] text = new TextBlock[10, 9];
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
                     btn[i, j] = new Button();
-                    text[i, j] = new TextBlock();
                     btn[i, j].Width = 65;
                     btn[i, j].Height = 65;
                     btn[i, j].Margin = new Thickness(8, 10, 0, 0);
                     btn[i, j].BorderThickness = new Thickness(0, 0, 0, 0);
                     btn[i, j].Background = Brushes.Transparent;
                     btn[i, j] = PutChess(Matrix, btn[i, j], i, j);
-                    //btn[i, j].Background = Brushes.ForestGreen;
-                    //btn[i, j].Background = new SolidColorBrush(Colors.MediumSlateBlue);
                     btn[i, j].SetValue(Grid.RowProperty, i);
                     btn[i, j].SetValue(Grid.ColumnProperty, j);
-                    if(Road[i,j].road == Chess.chessroad.can)
+                    if (Road[i, j].road == Chess.chessroad.can)
                     {
                         btn[i, j].Width = 30;
                         btn[i, j].Height = 30;
@@ -95,8 +97,65 @@ namespace View
                     grid.Children.Add(btn[i, j]);
                 }
             }
-            Buttoneven(Matrix,btn);
-
+            Buttoneven(Matrix, btn);
+        }
+        public void Tips(Grid maingrid)
+        {
+            TextBlock Textplayer = new TextBlock();
+            maingrid.Children.Add(Textplayer);
+            Textplayer.Text = "Red turn";
+            Textplayer.FontSize = 50;
+            Textplayer.Margin = new Thickness(720, 250, 0, 0);
+            TextBlock operation = new TextBlock();
+            maingrid.Children.Add(operation);
+            if (chozentime % 2 == 0)
+            {
+                operation.Text = "Select the piece";
+            }
+            else
+            {
+                operation.Text = "Move the piece";
+            }
+            operation.FontSize = 30;
+            operation.Foreground = Brushes.Gray;
+            operation.Margin = new Thickness(720, 350, 0, 0);
+            if (player % 2 == 0)
+            {
+                Textplayer.Foreground = Brushes.Red;
+            }
+            else
+            {
+                Textplayer.Foreground = Brushes.Blue;
+            }
+            Button Regret = new Button();
+            maingrid.Children.Add(Regret);
+            Regret.Width = 200;
+            Regret.Height = 100;
+            Regret.Content = "Regret game";
+            Regret.FontSize = 30;
+            Regret.Margin = new Thickness(650, 250, 0, 0);
+            Regret.Click += Regret_Game;
+        }
+        public void Regret_Game(object sender, RoutedEventArgs e)
+        {
+            if (regret == 0) 
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        Matrix[i, j].side = Save[i, j].side;
+                        Matrix[i, j].type = Save[i, j].type;
+                    }
+                }
+                player = player - 1;
+                regret++;
+                CreatGrid(Matrix);
+            }
+            else
+            {
+                MessageBox.Show("No more regret");
+            }
         }
         public void Buttoneven(Chess[,] Matrix, Button[,] btn)
         {
@@ -104,7 +163,7 @@ namespace View
             {
                 for (int j = 0; j < 9; j++)
                 {
-                        btn[i, j].Click += Button_Click;
+                    btn[i, j].Click += Button_Click;
                 }
             }
         }
@@ -114,6 +173,7 @@ namespace View
         public int Y;
         public int chozentime = 0;
         public int player = 0;
+        public int regret = 0;
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             bool result;
@@ -121,7 +181,7 @@ namespace View
             int btnRow = (int)((Button)sender).GetValue(Grid.RowProperty);
             int btnCol = (int)((Button)sender).GetValue(Grid.ColumnProperty);
             //MessageBox.Show("Button is:" + "\n - Column ="+btnCol + "\n - Row =" + btnRow);
-            if (chozentime%2 == 0)
+            if (chozentime % 2 == 0)
             {
                 chozenX = btnRow;
                 chozenY = btnCol;
@@ -129,7 +189,7 @@ namespace View
                 {
                     MessageBox.Show("There is no piece");
                 }
-                else if(player%2 == 0)
+                else if (player % 2 == 0)
                 {
                     if (Matrix[chozenX, chozenY].side == Chess.player.blue)
                     {
@@ -140,12 +200,12 @@ namespace View
                         // MessageBox.Show("You chozen it.");
                         //MessageBox.Show("Button is:" + "\n - Column =" + btnCol + "\n - Row =" + btnRow);
                         Road = con.Road(chozenX, chozenY, Matrix);
+                        chozentime++;
                         CreatGrid(Matrix);
                         Road = mod.Setroad();
-                        chozentime++;
                     }
                 }
-                else if(player%2 == 1)
+                else if (player % 2 == 1)
                 {
                     if (Matrix[chozenX, chozenY].side == Chess.player.red)
                     {
@@ -156,9 +216,9 @@ namespace View
                         // MessageBox.Show("You chozen it.");
                         //MessageBox.Show("Button is:" + "\n - Column =" + btnCol + "\n - Row =" + btnRow);
                         Road = con.Road(chozenX, chozenY, Matrix);
+                        chozentime++;
                         CreatGrid(Matrix);
                         Road = mod.Setroad();
-                        chozentime++;
                     }
                 }
             }
@@ -174,11 +234,25 @@ namespace View
                 }
                 else
                 {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 9; j++)
+                        {
+                            Save[i, j].side = Matrix[i, j].side;
+                            Save[i, j].type = Matrix[i, j].type;
+                        }
+                    }
+                    regret = 0;
                     bool move = con.movechess(X, Y, chozenX, chozenY, Matrix);
-                    if(move == false)
+                    if (move == false)
                     {
                         MessageBox.Show("You can not move there!");
                     }
+                    else
+                    {
+                        player++;
+                    }
+                    CreatGrid(Matrix);
                     result = con.Result(Matrix);
                     if (result == false)
                     {
@@ -193,13 +267,9 @@ namespace View
                         }
                         System.Environment.Exit(0);
                     }
-                    else
-                    {
-                        CreatGrid(Matrix);
-                    }
-                    player++;
                 }
                 chozentime++;
+                CreatGrid(Matrix);
             }
         }
         public Button PutChess(Chess[,] Matrix, Button btn, int i, int j)
