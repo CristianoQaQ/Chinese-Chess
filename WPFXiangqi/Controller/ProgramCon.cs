@@ -9,6 +9,17 @@ namespace Controller
         {
             //Console.WriteLine("Hello World!");
         }
+        public void Trans(Chess[,] Input, Chess[,] Output)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    Input[i, j].side = Output[i, j].side;
+                    Input[i, j].type = Output[i, j].type;
+                }
+            }
+        }
         public bool Result(Chess[,] Matrix)//判断游戏是否结束
         {
             int n = 0;
@@ -32,6 +43,7 @@ namespace Controller
                 result = false;
                 return result;
             }
+
         }
         public Chess[,] Road(int chozenX, int chozenY, Chess[,] Matrix)
         {

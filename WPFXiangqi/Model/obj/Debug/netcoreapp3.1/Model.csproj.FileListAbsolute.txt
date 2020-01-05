@@ -9,14 +9,3 @@ C:\Users\SUNNY\source\repos\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.Assem
 C:\Users\SUNNY\source\repos\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
 C:\Users\SUNNY\source\repos\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.dll
 C:\Users\SUNNY\source\repos\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.pdb
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\bin\Debug\netcoreapp3.1\Model.exe
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\bin\Debug\netcoreapp3.1\Model.deps.json
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.json
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.dev.json
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\bin\Debug\netcoreapp3.1\Model.dll
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\bin\Debug\netcoreapp3.1\Model.pdb
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.csprojAssemblyReference.cache
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.dll
-G:\GITPRO\Chinese-Chess\WPFXiangqi\Model\obj\Debug\netcoreapp3.1\Model.pdb
