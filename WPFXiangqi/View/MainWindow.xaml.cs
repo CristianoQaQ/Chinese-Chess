@@ -41,9 +41,9 @@ namespace View
             Road = mod.Setroad();
             Resultsave = mod.Resetground();
             PassRoad = mod.Setroad();
-            CreatGrid(Matrix);
+            CreateGrid(Matrix);
         }
-        public void CreatGrid(Chess[,] Matrix)
+        public void CreateGrid(Chess[,] Matrix)
         {
             Grid maingrid = new Grid();
             this.Content = maingrid;
@@ -156,7 +156,7 @@ namespace View
                 con.Trans(Matrix, Save);
                 player = player - 1;
                 regret++;
-                CreatGrid(Matrix);
+                CreateGrid(Matrix);
             }
             else
             {
@@ -182,7 +182,6 @@ namespace View
         public int regret = 0;
         public bool check = true;
         public bool defence = false;
-        // public int Case;
         public int r, c ;
         public void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -211,7 +210,7 @@ namespace View
                     {
                         Road = con.GetRoad(chozenX, chozenY, Matrix);
                         chozentime++;
-                        CreatGrid(Matrix);
+                        CreateGrid(Matrix);
                         Road = mod.Setroad();
                     }
                 }
@@ -225,7 +224,7 @@ namespace View
                     {
                         Road = con.GetRoad(chozenX, chozenY, Matrix);
                         chozentime++;
-                        CreatGrid(Matrix);
+                        CreateGrid(Matrix);
                         Road = mod.Setroad();
                     }
                 }
@@ -237,7 +236,7 @@ namespace View
                 if (X == chozenX && Y == chozenY)
                 {
                     MessageBox.Show("Cancel the operation!");
-                    CreatGrid(Matrix);
+                    CreateGrid(Matrix);
                 }
                 else
                 {
@@ -281,12 +280,12 @@ namespace View
                     {
                         MessageBox.Show("Your have been checked!");
                     }
-                    CreatGrid(Matrix);
+                    CreateGrid(Matrix);
                     result1 = con.Result(Matrix);
                     result2 = con.Checkmate(player, r, c,  Matrix,Save,  Resultsave, Road, check);
                     if (result1 == false || result2 == false)
                     {
-                        CreatGrid(Matrix);
+                        CreateGrid(Matrix);
                         if (player % 2 == 1)
                         {
                             MessageBox.Show("Game over, Red win!");
@@ -317,7 +316,7 @@ namespace View
                                 if (Matrix[k, l].type == Chess.chesstype.jiang && Road[k, l].road == Chess.chessroad.can)
                                 {
                                     check = false;
-                                    if (Matrix[k, l].side == Chess.player.red && player % 2 == 1 
+                                    if (Matrix[k, l].side == Chess.player.red && player % 2 == 1 && defence != true
                                         || Matrix[k, l].side == Chess.player.blue && player % 2 == 0 && defence != true)
                                     {
                                         con.Trans(Matrix, Save);
