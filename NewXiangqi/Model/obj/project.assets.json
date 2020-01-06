@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\SUNNY\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\obj\\",
+      "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj",
+      "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

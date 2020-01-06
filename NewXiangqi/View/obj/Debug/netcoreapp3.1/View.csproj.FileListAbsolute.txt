@@ -13,3 +13,6 @@ C:\Users\SUNNY\source\repos\NewXiangqi\View\obj\Debug\netcoreapp3.1\View.Assembl
 C:\Users\SUNNY\source\repos\NewXiangqi\View\obj\Debug\netcoreapp3.1\View.csproj.CopyComplete
 C:\Users\SUNNY\source\repos\NewXiangqi\View\obj\Debug\netcoreapp3.1\View.dll
 C:\Users\SUNNY\source\repos\NewXiangqi\View\obj\Debug\netcoreapp3.1\View.pdb
+C:\Users\SUNNY\source\repos\NewXiangqi\View\bin\Debug\netcoreapp3.1\Controller.exe
+C:\Users\SUNNY\source\repos\NewXiangqi\View\bin\Debug\netcoreapp3.1\Controller.dll
+C:\Users\SUNNY\source\repos\NewXiangqi\View\bin\Debug\netcoreapp3.1\Controller.pdb

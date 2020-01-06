@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Controller/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Controller.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Controller.dll": {}
+        }
+      },
       "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -15,6 +28,11 @@
     }
   },
   "libraries": {
+    "Controller/1.0.0": {
+      "type": "project",
+      "path": "../Controller/Controller.csproj",
+      "msbuildProject": "../Controller/Controller.csproj"
+    },
     "Model/1.0.0": {
       "type": "project",
       "path": "../Model/Model.csproj",
@@ -23,23 +41,24 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Controller >= 1.0.0",
       "Model >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\SUNNY\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\View.csproj",
+      "projectUniqueName": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj",
       "projectName": "View",
-      "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\View.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\View\\obj\\",
+      "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\View.csproj",
+      "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\View\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -52,8 +71,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj": {
-              "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj"
+            "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Controller\\Controller.csproj": {
+              "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Controller\\Controller.csproj"
+            },
+            "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj"
             }
           }
         }

@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\SUNNY\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Controller\\Controller.csproj",
+      "projectUniqueName": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Controller\\Controller.csproj",
       "projectName": "Controller",
-      "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Controller\\Controller.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Controller\\obj\\",
+      "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Controller\\Controller.csproj",
+      "packagesPath": "C:\\Users\\SUNNY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Controller\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SUNNY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -52,8 +52,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj": {
-              "projectPath": "G:\\GITPRO\\Chinese-Chess\\NewXiangqi\\Model\\Model.csproj"
+            "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\SUNNY\\source\\repos\\NewXiangqi\\Model\\Model.csproj"
             }
           }
         }
