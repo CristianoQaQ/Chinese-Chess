@@ -183,7 +183,7 @@ namespace View
         public bool check = true;
         public bool defence = false;
         // public int Case;
-        public int r, c;
+        public int r, c ;
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             int btnRow = (int)((Button)sender).GetValue(Grid.RowProperty);
@@ -209,7 +209,7 @@ namespace View
                     }
                     else
                     {
-                        Road = con.Road(chozenX, chozenY, Matrix);
+                        Road = con.GetRoad(chozenX, chozenY, Matrix);
                         chozentime++;
                         CreatGrid(Matrix);
                         Road = mod.Setroad();
@@ -223,7 +223,7 @@ namespace View
                     }
                     else
                     {
-                        Road = con.Road(chozenX, chozenY, Matrix);
+                        Road = con.GetRoad(chozenX, chozenY, Matrix);
                         chozentime++;
                         CreatGrid(Matrix);
                         Road = mod.Setroad();
@@ -276,9 +276,15 @@ namespace View
                             }
                         }
                     }
+                    Check();
+                    if (check == false)
+                    {
+                        MessageBox.Show("Your have been checked!");
+                    }
+                    CreatGrid(Matrix);
                     result1 = con.Result(Matrix);
-                    //result2 = Result();
-                    if (result1 == false /*|| result2 == false*/)
+                    result2 = con.Checkmate(player, r, c,  Matrix,Save,  Resultsave, Road, check);
+                    if (result1 == false || result2 == false)
                     {
                         CreatGrid(Matrix);
                         if (player % 2 == 1)
@@ -293,12 +299,6 @@ namespace View
                     }
                 }
                 chozentime++;
-                Check();
-                if (check == false)
-                {
-                    MessageBox.Show("Your have been checked!");
-                }
-                CreatGrid(Matrix);
             }
         }
         public void Check()
@@ -309,7 +309,7 @@ namespace View
                 {
                     if (Matrix[i, j].side != Chess.player.blank)
                     {
-                        Road = con.Road(i, j, Matrix);
+                        Road = con.GetRoad(i, j, Matrix);
                         for (int k = 0; k < 10; k++)
                         {
                             for (int l = 0; l < 9; l++)
@@ -336,80 +336,13 @@ namespace View
                     }
                 }
             }
-            if (Matrix[r, c].type == Chess.chesstype.jiang && PassRoad[r, c].road == Chess.chessroad.cant)
+            if (Save[r, c].type == Chess.chesstype.jiang && PassRoad[r, c].road == Chess.chessroad.cant)
             {
                 check = true;
                 defence = true;
             }
             PassRoad = mod.Setroad();
         }
-       /* public bool Result()
-        {
-            bool result = true;
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    if (Matrix[i, j].side != Chess.player.blank)
-                    {
-                        for (int k = 0; k < 10; k++)
-                        {
-                            for (int l = 0; l < 9; l++)
-                            {
-                                con.Trans(Resultsave, Matrix);
-                                if (player % 2 == 1 && Matrix[i, j].side == Chess.player.red)
-                                {
-                                    bool move = con.movechess(i, j, k, l, Matrix);
-                                    
-                                    if (move == true)
-                                    {
-                                        for (int a = 0; a < 10; a++)
-                                        {
-                                            for (int b = 0; b < 9; b++)
-                                            {
-                                                if(Matrix[a, b].side == Chess.player.blue)
-                                                {
-                                                    Road = con.Road(a, b, Matrix);
-                                                    if (Matrix[r, c].type == Chess.chesstype.jiang && Road[r, c].road == Chess.chessroad.can)
-                                                    {
-                                                        result = false;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        con.Trans(Matrix, Resultsave);
-                                    }
-                                }
-                                else if (player % 2 == 0 && Matrix[i, j].side == Chess.player.blue)
-                                {
-                                    bool move = con.movechess(i, j, k, l, Matrix);
-
-                                    if (move == true)
-                                    {
-                                        for (int a = 0; a < 10; a++)
-                                        {
-                                            for (int b = 0; b < 9; b++)
-                                            {
-                                                if (Matrix[a, b].side == Chess.player.red)
-                                                {
-                                                    Road = con.Road(a, b, Matrix);
-                                                    if (Matrix[r, c].type == Chess.chesstype.jiang && Road[r, c].road == Chess.chessroad.can)
-                                                    {
-                                                        result = false;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        con.Trans(Matrix, Resultsave);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return result;
-        }*/
         public Button PutChess(Chess[,] Matrix, Button btn, int i, int j)
         {
             switch (Matrix[i, j].side)

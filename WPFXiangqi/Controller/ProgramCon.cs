@@ -9,6 +9,7 @@ namespace Controller
         {
             //Console.WriteLine("Hello World!");
         }
+        ProgramMod mod = new ProgramMod();
         public void Trans(Chess[,] Input, Chess[,] Output)
         {
             for (int i = 0; i < 10; i++)
@@ -45,9 +46,8 @@ namespace Controller
             }
 
         }
-        public Chess[,] Road(int chozenX, int chozenY, Chess[,] Matrix)
+        public Chess[,] GetRoad(int chozenX, int chozenY, Chess[,] Matrix)
         {
-            ProgramMod mod = new ProgramMod();
             Chess[,] road = mod.Setroad();
             Chess[,] trans = new Chess[10, 9];
             for (int i = 0; i < 10; i++)
@@ -122,6 +122,131 @@ namespace Controller
             Matrix[X, Y].type = Matrix[chozenX, chozenY].type;
             Matrix[chozenX, chozenY].side = Chess.player.blank;
             Matrix[chozenX, chozenY].type = Chess.chesstype.blank;
+        }
+        public bool Checkmate(int player, int r, int c, Chess[,] Matrix, Chess[,] Save, Chess[,] Resultsave,Chess[,]Road, bool check )
+        {
+            int rsave = 0, csave = 0;
+            bool result = true;
+            bool Wholeloop = true;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (player % 2 == 1 && Matrix[i, j].side == Chess.player.blue && check == false && Wholeloop == true
+                        && Save[r, c].type == Chess.chesstype.jiang && Save[r, c].side == Chess.player.blue)
+                    {
+                        Trans(Resultsave, Matrix);
+                        for (int k = 0; k < 10; k++)
+                        {
+                            for (int l = 0; l < 9; l++)
+                            {
+                                if (Wholeloop == true)
+                                {
+                                    bool move = movechess(k, l, i, j, Matrix);
+                                    if (move == true)
+                                    {
+                                        if (Resultsave[i, j].type == Chess.chesstype.jiang)
+                                        {
+                                            rsave = r;
+                                            csave = c;
+                                            r = k;
+                                            c = l;
+                                        }
+                                        bool loop = true;
+                                        for (int a = 0; a < 10; a++)
+                                        {
+                                            for (int b = 0; b < 9; b++)
+                                            {
+                                                if (Matrix[a, b].side == Chess.player.red)
+                                                {
+                                                    Road = GetRoad(a, b, Matrix);
+                                                    if (Road[r, c].road == Chess.chessroad.can && loop == true)
+                                                    {
+                                                        result = false;
+                                                        loop = false;
+                                                    }
+                                                    else if (Road[r, c].road == Chess.chessroad.cant && loop == true)
+                                                    {
+                                                        result = true;
+                                                    }
+                                                    Road = mod.Setroad();
+                                                }
+                                            }
+                                        }
+                                        if (Resultsave[i, j].type == Chess.chesstype.jiang)
+                                        {
+                                            r = rsave;
+                                            c = csave;
+                                        }
+                                        if (result == true)
+                                        {
+                                            Wholeloop = false;
+                                        }
+                                    }
+                                }
+                                Trans(Matrix, Resultsave);
+                            }
+                        }
+                    }
+                    else if (player % 2 == 0 && Matrix[i, j].side == Chess.player.red && check == false && Wholeloop == true
+                        && Save[r, c].type == Chess.chesstype.jiang && Save[r, c].side == Chess.player.red)
+                    {
+                        Trans(Resultsave, Matrix);
+                        for (int k = 0; k < 10; k++)
+                        {
+                            for (int l = 0; l < 9; l++)
+                            {
+                                if (Wholeloop == true)
+                                {
+                                    bool move = movechess(k, l, i, j, Matrix);
+                                    if (move == true)
+                                    {
+                                        if (Resultsave[i, j].type == Chess.chesstype.jiang)
+                                        {
+                                            rsave = r;
+                                            csave = c;
+                                            r = k;
+                                            c = l;
+                                        }
+                                        bool loop = true;
+                                        for (int a = 0; a < 10; a++)
+                                        {
+                                            for (int b = 0; b < 9; b++)
+                                            {
+                                                if (Matrix[a, b].side == Chess.player.blue)
+                                                {
+                                                    Road = GetRoad(a, b, Matrix);
+                                                    if (Road[r, c].road == Chess.chessroad.can && loop == true)
+                                                    {
+                                                        result = false;
+                                                        loop = false;
+                                                    }
+                                                    else if (Road[r, c].road == Chess.chessroad.cant && loop == true)
+                                                    {
+                                                        result = true;
+                                                    }
+                                                    Road = mod.Setroad();
+                                                }
+                                            }
+                                        }
+                                        if (Resultsave[i, j].type == Chess.chesstype.jiang)
+                                        {
+                                            r = rsave;
+                                            c = csave;
+                                        }
+                                        if (result == true)
+                                        {
+                                            Wholeloop = false;
+                                        }
+                                    }
+                                }
+                                Trans(Matrix, Resultsave);
+                            }
+                        }
+                    }
+                }
+            }
+            return result;
         }
     }
 }
